@@ -129,4 +129,9 @@ display: block;
     display: flex;
     flex-direction: row;
   }
-  
+  .pie-chart {
+    width: 25%;
+    display: inline-block;
+    vertical-align: top;
+    font-weight: bolder;
+}

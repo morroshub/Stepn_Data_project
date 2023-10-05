@@ -11,6 +11,8 @@ def explorar_datos(df):
     return total_gst_ganado, total_gmt  # Devuelve los resultados como una tupla
     
 
+
+
 def calcular_totales_gst(df):
     # Grafico quema GST
     total_gst_para_cajas = df['Coste de caja gst'].sum()
@@ -38,6 +40,20 @@ def calcular_gemas_lv(df, columna, valor_yes, valor_no, extra):
 
 # Rate de gemas 
 
+
+def calcular_total_gst_upgrades(df):
+    total_gemas_lv1 = calcular_gemas_lv(df, 'Success LV1', 'YES', 'NO', 456)
+    total_gemas_lv2 = calcular_gemas_lv(df, 'Success LV2', 'YES', 'NO', 171)
+    total_gemas_lv3 = calcular_gemas_lv(df, 'Success LV3', 'YES', 'NO', 56)
+    total_gemas_lv4 = calcular_gemas_lv(df, 'Success LV4', 'YES', 'NO', 0)
+
+    total_gst_upgrades = (total_gemas_lv1 / 3 * 50) + (total_gemas_lv2 / 3 * 100) + (total_gemas_lv3 / 3 * 200) + (total_gemas_lv4 / 3 * 300)
+
+    return total_gst_upgrades
+
+
+
+
 def calcular_porcentajes(df, columna, valor_yes, valor_no):
     conteo = df[columna].value_counts()
     cantidad_yes = int(conteo.get(valor_yes, 0))
@@ -59,6 +75,7 @@ porcentaje_positivo, porcentaje_negativo, porcentaje_total = calcular_porcentaje
 # print("Porcentaje Positivo:", porcentaje_positivo)
 # print("Porcentaje Negativo:", porcentaje_negativo)
 # print("Porcentaje Total:", porcentaje_total)
+
 
 
 
