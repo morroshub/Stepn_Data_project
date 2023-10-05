@@ -74,11 +74,18 @@ trace4 = go.Bar(x=['Total'], y=[gstquemados[1]], name='Gst burned for repair sne
 trace9 = go.Bar(x=['Total'], y=[total_gst_upgrades], name='Gst burned for upgrades')
 # tracetotal = go.Bar(x=['Total'], y=[gstquemadostotales], name='Gst burned')
 
-# Grafico quema Gemas
 trace5 = go.Bar(x=['Total'], y=[total_gemas_lv1], name='lv1 gems burned')
+trace24 = go.Bar(x=['Total'], y=[total_gemas_lv1 / 3], name='total ups lv1')
+
 trace6 = go.Bar(x=['Total'], y=[total_gemas_lv2], name='lv2 gems burned')
+trace25 = go.Bar(x=['Total'], y=[total_gemas_lv2 / 3], name='total ups lv2')
+
 trace7 = go.Bar(x=['Total'], y=[total_gemas_lv3], name='lv3 gems burned')
+trace26 = go.Bar(x=['Total'], y=[total_gemas_lv3 / 3], name='total ups lv3')
+
 trace8 = go.Bar(x=['Total'], y=[total_gemas_lv4], name='lv4 gems burned')
+trace27 = go.Bar(x=['Total'], y=[total_gemas_lv4 / 3], name='total ups lv4')
+
 
 
 # Grafico porcentaje rate total de gemas :
@@ -135,33 +142,33 @@ app.layout = html.Div(children=[
     dcc.Graph(
         id='combined-graph',
         figure={
-            'data': [trace5, trace6, trace7, trace8],
+            'data': [trace5,trace24, trace6, trace25, trace7, trace26, trace8, trace27],
             'layout': go.Layout(title='Gems upgraded by me in 500 days', barmode='group')
         }
     ),
     dcc.Graph(
-        id='pie-chart',
+        id='pie-chartlv1',
         figure={
             'data': [trace20],
             'layout': go.Layout(title='Rate gems for levels by me in 500 days', barmode='group')
         }
     ),
     dcc.Graph(
-        id='pie-chart',
+        id='pie-chartlv2',
         figure={
             'data': [trace21],
             'layout': go.Layout(title='Rate gems for levels by me in 500 days', barmode='group')
         }
     ),
     dcc.Graph(
-        id='pie-chart',
+        id='pie-chartlv3',
         figure={
             'data': [trace22],
             'layout': go.Layout(title='Rate gems for levels by me in 500 days', barmode='group')
         }
     ),
     dcc.Graph(
-        id='pie-chart',
+        id='pie-chartlv4',
         figure={
             'data': [trace23],
             'layout': go.Layout(title='Rate gems for levels by me in 500 days', barmode='group')
