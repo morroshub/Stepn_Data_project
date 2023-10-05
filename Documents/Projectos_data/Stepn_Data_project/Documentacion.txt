@@ -1,0 +1,62 @@
+Spanish & English Q.A
+
+
+English:
+
+What is the main objective of your project?
+The main objective of this project is to provide a summary of my own collection of information, covering from October 2022 to July 2023. Through this notebook, the collected information will be displayed and analyzed to draw relevant conclusions and observations.
+
+What problem are you addressing or what need are you covering?
+With this project, I aim to provide technical disclosure about my type of gameplay, strategy, and playing style within STEPN, a web3 project by FSL (Find Satoshi Lab). Through the information presented in this notebook, readers will gain a better understanding of my approach and gameplay style, as well as learn about STEPN in general.
+
+What are the main features and functionalities of your project?
+This project provides a dataset that has been collected, broken down, and presented in a structured manner. Readers can explore and analyze the information to draw conclusions and gain a better understanding of the associated game and strategy.
+
+What technologies did you use in your project?
+For this project, Python was used along with the following libraries: SQLite, Pandas, Matplotlib, NumPy, and Seaborn. These libraries were used for data analysis, CSV file manipulation, chart visualization, and other data processing tasks.
+
+How do you install and run your project?
+Provide clear and detailed instructions on how to install and run your project, including any necessary dependencies and specific commands to use.
+
+How is your project used?
+Explain how users can interact with your project, what actions they can perform, and how they can take advantage of its functionalities.
+
+What type of data is required or generated in your project?
+Describe the types of data used in your project, whether it's required input information, generated data, or produced results.
+
+Are there any special requirements or important considerations to keep in mind?
+Mention any special requirements, technical considerations, or restrictions that users or contributors should be aware of when using or contributing to your project.
+
+What results or achievements have you obtained with your project?
+Highlight the main results, achievements, or conclusions reached with your project, such as performance metrics, improvements made, or expected results.
+
+What is the current status of your project and what are the future plans?
+Indicate whether your project is in an initial stage, under development, or a completed project. You can also mention future plans for the project, such as improvements, new features, or expansions.
+
+Final Text in English:
+
+Within this notebook, you will find a compilation of data and analysis related to my experience in STEPN, the web3 project by FSL. Through this documentation, you will be able to explore and better understand my gameplay approach, as well as gain valuable insights into STEPN as a whole. Python was used along with various libraries such as SQLite, Pandas, Matplotlib, NumPy, and Seaborn for analyzing and visualizing the collected data. This project is in ongoing development and will be regularly updated with new information and analysis. Furthermore, there are plans to expand the documentation to include more insights on other players and specific game features. Enjoy the journey through my project!
+
+
+¿Cuál es el objetivo principal de tu proyecto?
+El objetivo principal de este proyecto es proporcionar un resumen de mi propia recopilación de información, que abarca desde octubre de 2022 hasta julio de 2023. A través de este notebook, se mostrará y analizará la información recopilada para obtener conclusiones y observaciones relevantes.
+
+¿Qué problema estás abordando o qué necesidad estás cubriendo?
+Con este proyecto, busco brindar divulgación técnica sobre mi tipo de juego, estrategia y forma de jugar dentro de STEPN, un proyecto web3 de FSL (Find Satoshi Lab). A través de la información presentada en este notebook, los lectores podrán obtener una mejor comprensión de mi enfoque y estilo de juego, así como aprender sobre STEPN en general.
+
+¿Cuáles son las principales características y funcionalidades de tu proyecto?
+Este proyecto proporciona un conjunto de datos recopilados, desglosados y presentados de manera estructurada. Los lectores podrán explorar y analizar la información para obtener conclusiones y comprender mejor el juego y la estrategia asociados.
+
+¿Qué tecnologías utilizaste en tu proyecto?
+Para este proyecto, se utilizó Python junto con las siguientes bibliotecas: SQLite, Pandas, Matplotlib, NumPy y Seaborn. Estas bibliotecas fueron utilizadas para el análisis de datos, la manipulación de archivos CSV, la visualización de gráficos y otras tareas relacionadas con el procesamiento de datos.
+
+¿Cuál es el estado actual de tu proyecto y cuáles son los planes futuros?
+Actualmente, este proyecto está en desarrollo y se actualizará mensualmente con nueva información y análisis. Para el futuro, se planea incluir más notebooks con información adicional sobre otros jugadores, así como crear funciones y análisis específicos que expliquen características del juego, como la probabilidad de obtener gemas y sneakers rainbow.
+
+Texto final en español:
+
+Dentro de este notebook, encontrarás una recopilación de datos y análisis relacionados con mi experiencia en STEPN, el proyecto web3 de FSL. A través de esta documentación, podrás explorar y comprender mejor mi enfoque de juego, así como obtener información valiosa sobre STEPN en general. Se utilizó Python junto con varias bibliotecas, como SQLite, Pandas, Matplotlib, NumPy y Seaborn, para analizar y visualizar los datos recopilados. Este proyecto está en constante desarrollo y se actualizará regularmente con nueva información y análisis. Además, se planea ampliar la documentación para incluir más información sobre otros jugadores y características específicas del juego. ¡Disfruta del recorrido por mi proyecto!
+
+
+
+
