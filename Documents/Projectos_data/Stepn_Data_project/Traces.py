@@ -1,7 +1,8 @@
 
 import plotly.graph_objs as go
+import re
 import pandas as pd
-from datalimpia import explorar_datos, calcular_totales_gst, calcular_gemas_lv,procesar_cajas, contar_ocurrencias, calcular_porcentajes, calcular_total_gst_upgrades
+from datalimpia import explorar_datos, calcular_totales_gst, calcular_gemas_lv,procesar_cajas, contar_ocurrencias, calcular_porcentajes, calcular_total_gst_upgrades,calcular_gemaseachcolor_lvYES
 
 #Carga de CSV
 df = pd.read_csv('Dash/Corridas-Stepn-PowerbiS.csv')
@@ -48,6 +49,15 @@ porcentaje_positivo_lv3, porcentaje_negativo_lv3, porcentaje_total_lv3 = calcula
 
 # Llamamos a la función para calcular rate gemas lv4
 porcentaje_positivo_lv4, porcentaje_negativo_lv4, porcentaje_total_lv4 = calcular_porcentajes(df, 'Success LV4', 'YES', 'NO')
+
+
+diccionario_eachcolor_YESLV1, diccionario_eachcolor_NOLV1 = calcular_gemaseachcolor_lvYES(df, 'Success LV1', 'YES', 'NO', 456)
+
+diccionario_eachcolor_YESLV2, diccionario_eachcolor_NOLV2= calcular_gemaseachcolor_lvYES(df, 'Success LV2', 'YES','NO', '171')
+
+diccionario_eachcolor_YESLV3, diccionario_eachcolor_NOLV3 = calcular_gemaseachcolor_lvYES(df, 'Success LV3', 'YES', 'NO', 56)
+
+diccionario_eachcolor_YESLV4, diccionario_eachcolor_NOLV4= calcular_gemaseachcolor_lvYES(df, 'Success LV4', 'YES', 'NO', 0)
 
 
 traces_minado = {
@@ -101,7 +111,6 @@ traces_cajas = {
         x=['Total'], y=[total_ocurrencias], name='$Total MBS')
 }
 
-# Diccionario principal que contiene todos los diccionarios relacionados con las gemas de LV1, LV2, LV3 y LV4
 traces_gemall_combined = {
     'lv1': {
         'lv1gems_burned': go.Bar(x=['Total'], y=[total_gemas_lv1], name='lv1 gems burned'),
@@ -120,7 +129,6 @@ traces_gemall_combined = {
         'lv4gems_totalups': go.Bar(x=['Total'], y=[total_gemas_lv4 / 3], name='total ups lv4')
     }
 }
-
 
 rate_gemstraces = {
     'lv1': go.Pie(
@@ -146,5 +154,43 @@ rate_gemstraces = {
 }
 
 
-
-
+eachcolor_rate = {
+    'lv1': go.Pie(
+        labels=['C', 'E', 'L', 'R'],
+        values=[
+            ((diccionario_eachcolor_YESLV1['C']/ (diccionario_eachcolor_YESLV1['C'] + diccionario_eachcolor_NOLV1['C']) )),
+           ((diccionario_eachcolor_YESLV1['E']/ (diccionario_eachcolor_YESLV1['E'] + diccionario_eachcolor_NOLV1['E']) )),
+           ((diccionario_eachcolor_YESLV1['L']/ (diccionario_eachcolor_YESLV1['L'] + diccionario_eachcolor_NOLV1['L']) )),
+           ((diccionario_eachcolor_YESLV1['R']/ (diccionario_eachcolor_YESLV1['R'] + diccionario_eachcolor_NOLV1['R']) )),
+        ],
+        title='Success Rate for LV1',
+    ),
+   'lv2': go.Pie(
+        labels=['C', 'E', 'L', 'R'],
+        values=[
+            ((diccionario_eachcolor_YESLV2['C'] / (diccionario_eachcolor_YESLV2['C'] + diccionario_eachcolor_NOLV2['C']))),
+            ((diccionario_eachcolor_YESLV2['E'] / (diccionario_eachcolor_YESLV2['E'] + diccionario_eachcolor_NOLV2['E']))),
+            ((diccionario_eachcolor_YESLV2['L'] / (diccionario_eachcolor_YESLV2['L'] + diccionario_eachcolor_NOLV2['L']))),
+            ((diccionario_eachcolor_YESLV2['R'] / (diccionario_eachcolor_YESLV2['R'] + diccionario_eachcolor_NOLV2['R']))),
+        ],
+        title='Success Rate for LV2',
+    ),
+    'lv3': go.Pie(
+        labels=['C', 'E', 'L', 'R'],
+        values=[
+            ((diccionario_eachcolor_YESLV3['C'] / (diccionario_eachcolor_YESLV3['C'] + diccionario_eachcolor_NOLV3['C']))),
+            ((diccionario_eachcolor_YESLV3['E'] / (diccionario_eachcolor_YESLV3['E'] + diccionario_eachcolor_NOLV3['E']))),
+            ((diccionario_eachcolor_YESLV3['L'] / (diccionario_eachcolor_YESLV3['L'] + diccionario_eachcolor_NOLV3['L']))),
+            ((diccionario_eachcolor_YESLV3['R'] / (diccionario_eachcolor_YESLV3['R'] + diccionario_eachcolor_NOLV3['R']))),
+        ],
+        title='Success Rate for LV3',
+    ),
+    'lv4': go.Pie(
+        labels=['L', 'R'],
+        values=[
+            ((diccionario_eachcolor_YESLV4['L'] / (diccionario_eachcolor_YESLV4['L'] + diccionario_eachcolor_NOLV4['L']))),
+            ((diccionario_eachcolor_YESLV4['R'] / (diccionario_eachcolor_YESLV4['R'] + diccionario_eachcolor_NOLV4['R']))),
+        ],
+        title='Success Rate for LV4',
+    ),
+    }

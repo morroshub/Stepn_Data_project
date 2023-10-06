@@ -1,4 +1,5 @@
 import pandas as pd
+import plotly.graph_objs as go
 
 # Importar la data
 df = pd.read_csv('Dash/Corridas-Stepn-PowerbiS.csv')
@@ -118,3 +119,36 @@ def contar_ocurrencias(valores_dict):
 # resultados = procesar_cajas(df)
 # total_ocurrencias = contar_ocurrencias(resultados)
 # print(total_ocurrencias)
+
+
+
+
+def calcular_gemaseachcolor_lvYES(df, column_name, value_yes, value_no, num):
+    # Inicializar diccionarios para YES y NO
+    diccionario_eachcolor_NO = {'R': 0, 'C': 0, 'E': 0, 'L': 0}
+    diccionario_eachcolor_YES = {'R': 0, 'C': 0, 'E': 0, 'L': 0}
+    
+    # Recorrer el DataFrame
+    for index, row in df.iterrows():
+        upgrades = row['Aclaraciones de Upgrades']
+        
+        # Verificar si el valor en 'Aclaraciones de Upgrades' es un str
+        if isinstance(upgrades, str):
+            # Extraer el nivel (level) y el color (color) de 'Aclaraciones de Upgrades'
+            import re
+            matches = re.findall(r'3([CERL]+)lv(\d+)', upgrades)
+            
+            for color, level in matches:
+                if row[column_name] == value_yes:
+                    diccionario_eachcolor_YES[color] += 1
+                elif row[column_name] == value_no:
+                    diccionario_eachcolor_NO[color] += 1
+    
+    return diccionario_eachcolor_YES, diccionario_eachcolor_NO
+
+# # Ejemplo de uso:
+# diccionario_eachcolor_YESLV3, diccionario_eachcolor_NOLV3 = calcular_gemaseachcolor_lvYES(df, 'Success LV3', 'YES', 'NO', 56)
+# print("YES LV3:", diccionario_eachcolor_YESLV3)
+# print("NO LV3:", diccionario_eachcolor_NOLV3)
+
+
