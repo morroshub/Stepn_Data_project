@@ -1,8 +1,10 @@
 import dash
 from dash import dcc, html
 import plotly.graph_objs as go
+from coxcomb import generate_coxcomb_chart
 from datalimpia import *
 from Traces import *
+from coxcomb import *
 
 # Trace assets minado
 minado_gst = traces_minado['gst mianed']
@@ -54,6 +56,14 @@ eachcolor_ratelv2 = eachcolor_rate['lv2']
 eachcolor_ratelv3 = eachcolor_rate['lv3']
 
 eachcolor_ratelv4 = eachcolor_rate['lv4']
+
+
+
+figurelv1 = generate_coxcomb_chart(lv1_values, 'LV1') 
+
+figurelv2 = generate_coxcomb_chart(lv2_values, 'LV2') 
+
+
 
 
 app = dash.Dash()
@@ -149,7 +159,7 @@ app.layout = html.Div([
             figure={
                 'data': [eachcolor_ratelv1],
                 'layout': go.Layout(title={
-                    'text': 'lv1 upgrades colors',
+                    'text': " '% trys in' lv1 upgrades colors",
                     'font': {
                         'size': 12  # Tamaño de fuente deseado
                     }
@@ -162,7 +172,7 @@ app.layout = html.Div([
             figure={
                 'data': [eachcolor_ratelv2],
                 'layout': go.Layout(title={
-                    'text': 'lv2 upgrades colors',
+                    'text': " f success trys in lv2 upgrades colors",
                     'font': {
                         'size': 12  # Tamaño de fuente deseado
                     }
@@ -175,7 +185,7 @@ app.layout = html.Div([
             figure={
                 'data': [eachcolor_ratelv3],
                 'layout': go.Layout(title={
-                    'text': 'lv3 upgrades colors',
+                    'text': "of success trys in lv3 upgrades colors",
                     'font': {
                         'size': 12  # Tamaño de fuente deseado
                     }
@@ -183,18 +193,14 @@ app.layout = html.Div([
             },
             className='pie-chart'
         ),
+        html.Div(id='coxcomb-charts', children=[
         dcc.Graph(
-            id='pie-chartlv4-eachcolor',
-            figure={
-                'data': [eachcolor_ratelv4],
-                'layout': go.Layout(title={
-                    'text': 'lv4 upgrades colors',
-                    'font': {
-                        'size': 12  # Tamaño de fuente deseado
-                    }
-                }, barmode='group')
-            },
-            className='pie-chart'
+            id='coxcomb-lv1',
+            figure=generate_coxcomb_chart(lv1_values, 'LV1')
+        ),
+        dcc.Graph(
+            id='coxcomb-lv2',
+            figure=generate_coxcomb_chart(lv2_values, 'LV2')
         ),
     ])
 ])

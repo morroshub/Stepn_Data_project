@@ -2,7 +2,7 @@
 import plotly.graph_objs as go
 import re
 import pandas as pd
-from datalimpia import explorar_datos, calcular_totales_gst, calcular_gemas_lv,procesar_cajas, contar_ocurrencias, calcular_porcentajes, calcular_total_gst_upgrades,calcular_gemaseachcolor_lvYES
+from datalimpia import *
 
 #Carga de CSV
 df = pd.read_csv('Dash/Corridas-Stepn-PowerbiS.csv')
@@ -59,6 +59,7 @@ diccionario_eachcolor_YESLV3, diccionario_eachcolor_NOLV3 = calcular_gemaseachco
 
 diccionario_eachcolor_YESLV4, diccionario_eachcolor_NOLV4= calcular_gemaseachcolor_lvYES(df, 'Success LV4', 'YES', 'NO', 0)
 
+total_exitos_lv3 = sum(diccionario_eachcolor_YESLV3.values())
 
 traces_minado = {
 'gst mianed':go.Bar(
@@ -153,7 +154,6 @@ rate_gemstraces = {
     )
 }
 
-
 eachcolor_rate = {
     'lv1': go.Pie(
         labels=['C', 'E', 'L', 'R'],
@@ -176,14 +176,14 @@ eachcolor_rate = {
         title='Success Rate for LV2',
     ),
     'lv3': go.Pie(
-        labels=['C', 'E', 'L', 'R'],
-        values=[
-            ((diccionario_eachcolor_YESLV3['C'] / (diccionario_eachcolor_YESLV3['C'] + diccionario_eachcolor_NOLV3['C']))),
-            ((diccionario_eachcolor_YESLV3['E'] / (diccionario_eachcolor_YESLV3['E'] + diccionario_eachcolor_NOLV3['E']))),
-            ((diccionario_eachcolor_YESLV3['L'] / (diccionario_eachcolor_YESLV3['L'] + diccionario_eachcolor_NOLV3['L']))),
-            ((diccionario_eachcolor_YESLV3['R'] / (diccionario_eachcolor_YESLV3['R'] + diccionario_eachcolor_NOLV3['R']))),
-        ],
-        title='Success Rate for LV3',
+    labels=['C', 'E', 'L', 'R'],
+    values=[
+        ((diccionario_eachcolor_YESLV3['C'] / (diccionario_eachcolor_YESLV3['C'] + diccionario_eachcolor_NOLV3['C']))),
+        ((diccionario_eachcolor_YESLV3['E'] / (diccionario_eachcolor_YESLV3['E'] + diccionario_eachcolor_NOLV3['E']))),
+        ((diccionario_eachcolor_YESLV3['L'] / (diccionario_eachcolor_YESLV3['L'] + diccionario_eachcolor_NOLV3['L']))),
+        ((diccionario_eachcolor_YESLV3['R'] / (diccionario_eachcolor_YESLV3['R'] + diccionario_eachcolor_NOLV3['R']))),
+    ],
+    title='Success Rate for LV3',
     ),
     'lv4': go.Pie(
         labels=['L', 'R'],
@@ -194,3 +194,4 @@ eachcolor_rate = {
         title='Success Rate for LV4',
     ),
     }
+
